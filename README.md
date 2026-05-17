@@ -6,20 +6,33 @@
 
 ---
 
+## 🚀 Start Here
+
+| I am a... | Go to... |
+|---|---|
+| **Student (Day 1)** | [Before You Start — Required Setup](#before-you-start--required-setup) |
+| **Student (returning)** | [Your Daily 8-Step Workflow](#student-workflow--your-daily-8-steps) |
+| **Student (stuck on code)** | [How to Ask for Help](#how-to-ask-for-help) |
+| **Instructor** | [`TEACHING-GUIDE.md`](./TEACHING-GUIDE.md) — full day-of-class playbook |
+
+---
+
 ## 📋 Table of Contents
 
 1. [What This Is](#what-this-is)
-2. [What You Will Learn](#what-you-will-learn)
-3. [Before You Start — Required Setup](#before-you-start--required-setup)
-4. [How to Clone and Contribute](#how-to-clone-and-contribute)
-5. [Your First Day — Step by Step](#your-first-day--step-by-step)
-6. [Course Modules](#course-modules)
-7. [How to Use AI Tools Responsibly](#how-to-use-ai-tools-responsibly)
-8. [Repository Structure](#repository-structure)
-9. [Student Contribution Rules](#student-contribution-rules)
-10. [Code Standards Cheatsheet](#code-standards-cheatsheet)
-11. [How to Ask for Help](#how-to-ask-for-help)
-12. [Progression Milestones](#progression-milestones)
+2. [Understanding the .claude Folder](#understanding-the-claude-folder)
+3. [What You Will Learn](#what-you-will-learn)
+4. [Before You Start — Required Setup](#before-you-start--required-setup)
+5. [How to Clone and Contribute](#how-to-clone-and-contribute)
+6. [Your First Day — Step by Step](#your-first-day--step-by-step)
+7. [Student Workflow — Your Daily 8 Steps](#student-workflow--your-daily-8-steps)
+8. [Course Modules](#course-modules)
+9. [How to Use AI Tools Responsibly](#how-to-use-ai-tools-responsibly)
+10. [Repository Structure](#repository-structure)
+11. [Student Contribution Rules](#student-contribution-rules)
+12. [Code Standards Cheatsheet](#code-standards-cheatsheet)
+13. [How to Ask for Help](#how-to-ask-for-help)
+14. [Progression Milestones](#progression-milestones)
 
 ---
 
@@ -39,6 +52,62 @@ Every agent, every prompt, and every workflow is designed around one principle:
 
 ---
 
+## Understanding the .claude Folder
+
+When you clone this repo, you will see a `.claude/` folder in the sidebar.
+**Do not edit anything inside it.** Here is what it is and why it matters.
+
+The `.claude/` folder is the **AI's instruction manual** for this classroom.
+Every time you use Antigravity IDE or Claude in this repo, the AI reads this
+folder automatically and behaves like a tutor configured for this exact course.
+
+### What's Inside .claude/
+
+```
+.claude/
+├── CLAUDE.md              ← The AI's main brain — defines how it teaches
+├── WORKFLOWS.md           ← Step-by-step lesson and session workflows
+├── agents/                ← 30 specialized AI assistants
+│   ├── html-educator.md   ← Your HTML tutor
+│   └── css-educator.md    ← Your CSS tutor
+├── contexts/              ← Templates YOU use to start AI sessions
+│   ├── student.md         ← ⭐ Copy this before EVERY AI chat
+│   └── teacher.md         ← Instructor-facing prompts
+├── rules/                 ← The standards your code is reviewed against
+│   ├── html/html-standards.md
+│   └── css/css-standards.md
+└── skills/                ← 125 knowledge skills the AI draws from
+```
+
+### The One File You Will Use Daily: `student.md`
+
+Open `.claude/contexts/student.md`. It contains a template like this:
+
+```
+I am a beginner HTML student on Module [X].
+Today I am trying to [describe goal].
+My current code: [paste your code]
+What I've already tried: [list attempts]
+My question: [specific question]
+```
+
+Copy this template, fill in the blanks, and paste it as your **first message**
+in every Antigravity or Claude chat. This tells the AI exactly who you are
+and gets you a much better answer than just asking a vague question.
+
+### Rules for the .claude Folder
+
+| You CAN... | You CANNOT... |
+|---|---|
+| Read any file inside it | Edit any file inside it |
+| Use `student.md` as a prompt template | Create new files inside it |
+| Ask the AI to explain what's in it | Delete or rename anything |
+
+> The `.claude/` folder is teacher-managed. If something seems wrong with how the AI
+> is behaving, tell your instructor — do not try to fix it yourself.
+
+---
+
 ## What You Will Learn
 
 By the end of this course you will be able to:
@@ -55,6 +124,68 @@ By the end of this course you will be able to:
 | Add interactivity with vanilla JavaScript | 8 |
 | Use AI as a professional development tool | All |
 | Work with Git and GitHub like a developer | All |
+
+---
+
+## Student Workflow — Your Daily 8 Steps
+
+Follow this exact sequence at the start of **every** class session:
+
+```
+Step 1 → Pull the latest changes from the instructor
+         git pull upstream main
+
+Step 2 → Switch to your personal branch
+         git checkout student/your-name
+
+Step 3 → Open your folder in VS Code
+         student-projects/your-name/
+
+Step 4 → Start Live Server
+         Right-click index.html → "Open with Live Server"
+         Your browser opens and auto-refreshes as you code
+
+Step 5 → Read today's lesson notes BEFORE writing any code
+         Open: curriculum/module-0X/lesson-notes.md
+
+Step 6 → Prime the AI with your context
+         Copy .claude/contexts/student.md
+         Fill in: module, goal, your current code, your question
+         Paste it as your first message to Antigravity
+
+Step 7 → Code, save, and inspect constantly
+         Ctrl+S after every small change
+         F12 to open DevTools and inspect what changed
+         Try to fix bugs yourself before asking the AI
+
+Step 8 → Commit your work at the end of every session
+         git add .
+         git commit -m "add: what you built today"
+         git push origin student/your-name
+```
+
+### Example of a Good Student Session
+
+**Bad version:**
+> Student opens Antigravity and types: *"Write me a navbar"*
+> AI writes 50 lines. Student copies it. Student learns nothing.
+
+**Good version:**
+> Student reads `curriculum/module-04-flexbox/lesson-notes.md` first.
+> Student tries to write the navbar themselves for 10 minutes.
+> Student opens Antigravity and types:
+>
+> ```
+> I am on Module 4 — Flexbox. I'm trying to build a navigation bar
+> with the logo on the left and links on the right.
+> I've tried: display: flex on the <nav>, but both logo and links
+> are on the left side.
+> My HTML: <nav><span>Logo</span><ul><li>Home</li><li>About</li></ul></nav>
+> My CSS: nav { display: flex; }
+> What am I missing? Give me a hint.
+> ```
+>
+> AI gives a hint → student finds the fix → student understands Flexbox better.
 
 ---
 
