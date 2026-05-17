@@ -20,7 +20,7 @@ student-projects/
 - Work **only** inside your own folder
 - Never edit another student's folder
 - Keep all your files inside `student-projects/your-name/`
-- See [`CONTRIBUTING.md`](../CONTRIBUTING.md) for how to submit your work via Pull Request
+- See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for how to submit your work via Pull Request
 
 ## Creating Your Folder
 
